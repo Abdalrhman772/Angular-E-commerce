@@ -1,5 +1,5 @@
-<label for="" class="my-1">{{title}} :</label>
-<select class="form-select" (change)="detectChange($event)">
+<label for="" class="my-1 fs-4">{{title}}:</label>
+<select class="form-select input-colour fs-5" (change)="detectChange($event)">
     <option value="All" selected>All</option>
-    <option value="{{option}}" *ngFor="let option of options">{{option}}</option>
+    <option  value="{{option}}" *ngFor="let option of options">{{option}}</option>
 </select>

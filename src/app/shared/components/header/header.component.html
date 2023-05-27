@@ -1,11 +1,21 @@
-<nav class="navbar navbar-expand-lg">
-    <div class="container">
-        <div class="content">
-            <h2 class="logo">Market</h2>
-            <ul>
-                <li routerLink="/">Products</li>
-                <li routerLink="/cart">Cart</li>
-            </ul>
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid d-flex justify-content-evenly">
+        <div>
+            <a class="navbar-brand text-white title fs-2" routerLink="/" [routerLinkActiveOptions]="{exact:true}"
+                routerLinkActive="active">Dokan</a>
+            <button class="navbar-toggler text-white" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <i class="bi bi-list fs-2"></i>
+            </button>
+        </div>
+        <div class="collapse navbar-collapse fw-bold" id="navbarNavAltMarkup">
+            <div class="navbar-nav fs-4">
+                <a class="nav-link text-white" routerLink="/" [routerLinkActiveOptions]="{exact:true}"
+                    routerLinkActive="active">Products</a>
+                <a class="nav-link text-white" routerLink="/cart" [routerLinkActiveOptions]="{exact:true}"
+                    routerLinkActive="active">Cart</a>
+            </div>
         </div>
     </div>
 </nav>

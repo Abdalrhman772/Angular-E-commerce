@@ -1,92 +1,78 @@
-<section class="h-100 h-custom">
-    <div class="container h-100 py-5">
-        <div class="row d-flex justify-content-center align-items-center h-100">
-            <div class="col">
-
-                <div class="table-responsive">
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <th scope="col" class="h5">Shopping Bag ({{cartProducts.length}} items)</th>
-                                <th scope="col">price</th>
-                                <th scope="col">Quantity</th>
-                                <th scope="col">total</th>
-                                <th scope="col">
-                                    <button (click)="clearCart()" class="btn btn-secondary">Clear All</button>
-                                </th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr *ngFor="let product of cartProducts; let index = index">
-                                <th scope="row">
-                                    <div class="d-flex align-items-center">
-                                        <img src="{{product.product.image}}" class="img-fluid rounded-circle"
-                                            style="width: 120px;" alt="Book">
-                                        <div class="flex-column ms-4 w-50">
-                                            <p class="mb-2">{{product.product.title}}</p>
-                                        </div>
+<div class="container py-5">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col">
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col" class="h4">Shopping Bag ({{cartProducts.length}} items)</th>
+                            <th scope="col">price</th>
+                            <th scope="col" class="text-center">Quantity</th>
+                            <th scope="col">total</th>
+                            <th scope="col">
+                                <button (click)="clearCart()" class="btn btn-secondary">Clear All</button>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let product of cartProducts; let index = index">
+                            <th scope="row">
+                                <div class="d-flex align-items-center">
+                                    <img src="{{product.product.image}}" class="img-fluid" alt="product">
+                                    <div class="flex-column ms-4 w-50">
+                                        <p class="mb-2">{{product.product.title}}</p>
                                     </div>
-                                </th>
-                                <td class="align-middle">
-                                    <p class="mb-0" style="font-weight: 500;">{{product.product.price}} LE</p>
-                                </td>
-                                <td class="align-middle">
-                                    <div class="d-flex flex-row">
-                                        <button class="btn btn-dark px-2" (click)="minusAmount(index)">
-                                            <i class="bi bi-dash-lg"></i>
-                                        </button>
-
-                                        <input min="1" name="quantity" [(ngModel)]="product.quantity" type="number"
-                                            (change)="detectChange()" class="form-control form-control-sm"
-                                            style="width: 50px;" />
-
-                                        <button class="btn btn-dark px-2" (click)="addAmount(index)">
-                                            <i class="bi bi-plus-lg"></i>
-                                        </button>
-                                    </div>
-                                </td>
-                                <td class="align-middle">
-                                    <p class="mb-0" style="font-weight: 500;">
-                                        {{product.product.price * product.quantity}} LE
-                                    </p>
-                                </td>
-                                <td class="align-middle">
-                                    <button (click)="deleteProduct(index)"
-                                        class="btn btn-outline-danger bi bi-x-lg"></button>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-
-                <div class="card shadow-2-strong mb-5 mb-lg-0" style="border-radius: 16px;">
-                    <div class="card-body p-4">
-
-                        <div class="row">
-                            <div class="col-lg-4 col-xl-3">
-
-                                <hr class="my-4">
-
-                                <div class="d-flex justify-content-between mb-4" style="font-weight: 500;">
-                                    <p class="mb-2">Total (tax included)</p>
-                                    <p class="mb-2">{{total}} LE</p>
                                 </div>
+                            </th>
+                            <td class="align-middle text-start">
+                                <p class="mb-0 fw-bold">{{product.product.price}} LE</p>
+                            </td>
+                            <td class="align-middle">
+                                <div class="d-flex flex-row">
+                                    <button class="btn btn-dark px-2" (click)="minusAmount(index)">
+                                        <i class="bi bi-dash-lg"></i>
+                                    </button>
 
-                                <button (click)="addUserCart()" class="btn btn-primary btn-block btn-lg">
-                                    <div class="d-flex justify-content-between">
-                                        <span>Checkout {{total}} LE</span>
-                                    </div>
-                                </button>
-                            </div>
-                        </div>
+                                    <input min="1" name="quantity" [(ngModel)]="product.quantity" type="number"
+                                        (change)="detectChange()" class="form-control mx-1 w-50" />
+
+                                    <button class="btn btn-dark px-2" (click)="addAmount(index)">
+                                        <i class="bi bi-plus-lg"></i>
+                                    </button>
+                                </div>
+                            </td>
+                            <td class="align-middle">
+                                <p class="mb-0 fw-bold">
+                                    {{(product.product.price * product.quantity).toFixed(2)}} LE
+                                </p>
+                            </td>
+                            <td class="align-middle">
+                                <button (click)="deleteProduct(index)"
+                                    class="btn btn-outline-danger bi bi-x-lg"></button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="card mb-5 mb-lg-0 border-0">
+                <div class="card-body text-end fw-bold fs-4">
+
+                    <hr>
+
+                    <div class="mb-3">
+                        <p class="mb-1">Total (tax included)</p>
+                        <p class="mb-1">{{total.toFixed(2)}} LE</p>
                     </div>
+
+                    <button (click)="addUserCart()" class="btn btn-primary btn-block btn-lg fw-bold">
+                        <span>Checkout {{total.toFixed(2)}} LE</span>
+                    </button>
                 </div>
             </div>
         </div>
     </div>
-
     <div class="alert alert-success fs-4" role="alert" *ngIf="success">
         Your order has been confirmed successfully!
     </div>
-
-</section>
+</div>

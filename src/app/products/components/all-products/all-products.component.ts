@@ -89,10 +89,4 @@ export class AllProductsComponent implements OnInit {
       localStorage.setItem('cart', JSON.stringify(this.cartProducts));
     }
   }
-
-  addButton(event: any) {
-    console.log(event.target);
-   let btn = event.target
-    
-  }
 }

@@ -10,7 +10,9 @@ import { ProductsService } from '../../services/products.service';
 export class ProductsDetailsComponent implements OnInit {
   ID = 0;
   product: any;
+  cartProducts: any[] = [];
   loading: boolean = false;
+
   constructor(
     private myRoute: ActivatedRoute,
     private myService: ProductsService
@@ -30,5 +32,23 @@ export class ProductsDetailsComponent implements OnInit {
         console.log(err);
       },
     });
+  }
+  
+  
+  addToCart() {
+    if ('cart' in localStorage) {
+      this.cartProducts = JSON.parse(localStorage.getItem('cart')!);
+      let exist = this.cartProducts.find((item) => item.product.id == this.ID);
+      if (exist) {
+        alert('exist');
+        console.log(this.product);
+      } else {
+        this.cartProducts.push(this.product);
+        localStorage.setItem('cart', JSON.stringify(this.cartProducts));
+      }
+    } else {
+      this.cartProducts.push(this.product);
+      localStorage.setItem('cart', JSON.stringify(this.cartProducts));
+    }
   }
 }

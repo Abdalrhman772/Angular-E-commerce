@@ -1,0 +1,18 @@
+.form-select:focus {
+  border-color: linear-gradient(to right, #c33764, #1d2671);
+  box-shadow: inset 0 1px 1px #c33764, 0 0 6px #c33764;
+}
+
+.form-select {
+  border-color: linear-gradient(to right, #c33764, #1d2671);
+
+}
+.input-colour, option {
+  color: #c33764;
+  font-weight: 800;
+}
+
+label {
+  color: #1d2671;
+  font-weight: 700;
+}

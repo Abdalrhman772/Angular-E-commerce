@@ -1,0 +1,16 @@
+.colour {
+    color: #c33764;
+
+}
+
+h5, span {
+    color: #1d2671;
+}
+
+span {
+    font-weight: 600;
+}
+
+.desc {
+    font-weight: 500;
+}
