@@ -1,4 +1,9 @@
-img{
-    width: 10%;
-    height: 20%;
+img {
+  width: 10%;
+  height: 20%;
+  mix-blend-mode: multiply;
+}
+
+.card {
+  /* background-color: rgb(253, 245, 234); */
 }

@@ -1,16 +1,20 @@
 .colour {
-    color: #c33764;
-
+  color: #c33764;
 }
 
-h5, span {
-    color: #1d2671;
+h5,
+span {
+  color: #1d2671;
 }
 
 span {
-    font-weight: 600;
+  font-weight: 600;
 }
 
 .desc {
-    font-weight: 500;
+  font-weight: 500;
+}
+
+.card {
+  /* background-color: rgb(253, 245, 234); */
 }

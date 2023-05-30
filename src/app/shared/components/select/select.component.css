@@ -5,9 +5,9 @@
 
 .form-select {
   border-color: linear-gradient(to right, #c33764, #1d2671);
-
 }
-.input-colour, option {
+.input-colour,
+option {
   color: #c33764;
   font-weight: 800;
 }
@@ -16,3 +16,12 @@ label {
   color: #1d2671;
   font-weight: 700;
 }
+
+.bi-filter-square-fill{
+  color: #d6537d;
+}
+
+
+/* option:hover, option:focus, option:checked {
+  background-color: #1d2671 !important;
+} */

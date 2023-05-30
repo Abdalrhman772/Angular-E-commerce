@@ -1,18 +1,18 @@
-<div class="item my-3">
+<div class="item my-5 pb-3">
     <div routerLink="/details/{{data.id}}">
         <img src="{{data.image}}" alt="">
         <div class="item-body">
             <h4 class="fs-5">{{data.title}}</h4>
-            <p>{{data.description}}</p>
+            <p class="description">{{data.description}}</p>
         </div>
     </div>
-    <div class="px-3 mb-2 d-flex justify-content-between align-items-center">
-        <button class="btn btn-success fw-bold" *ngIf="!addBtn" (click)="addBtn=true">Add to
+    <div class="px-3 mb-2 d-flex justify-content-between align-items-center mt-4">
+        <button class="btn first-btn fw-bold" *ngIf="!addBtn" (click)="addBtn=true">Add to
             cart</button>
         <div class="d-flex w-50" *ngIf="addBtn">
             <input type="number" min="1" class="form-control" [(ngModel)]="amount">
-            <button class="btn btn-danger" (click)="addToCart(); addBtn=false">Add</button>
+            <button class="btn second-btn fw-bold ms-1" (click)="addToCart(); addBtn=false">Add</button>
         </div>
-        <span class="fs-5">{{data.price}} L.E</span>
+        <span class="fs-5">{{data.price}} &dollar;</span>
     </div>
 </div>

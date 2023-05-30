@@ -25,7 +25,7 @@
                                 </div>
                             </th>
                             <td class="align-middle text-start">
-                                <p class="mb-0 fw-bold">{{product.product.price}} LE</p>
+                                <p class="mb-0 fw-bold">{{product.product.price}} &dollar;</p>
                             </td>
                             <td class="align-middle">
                                 <div class="d-flex flex-row">
@@ -43,7 +43,7 @@
                             </td>
                             <td class="align-middle">
                                 <p class="mb-0 fw-bold">
-                                    {{(product.product.price * product.quantity).toFixed(2)}} LE
+                                    {{(product.product.price * product.quantity).toFixed(2)}} &dollar;
                                 </p>
                             </td>
                             <td class="align-middle">
@@ -62,11 +62,11 @@
 
                     <div class="mb-3">
                         <p class="mb-1">Total (tax included)</p>
-                        <p class="mb-1">{{total.toFixed(2)}} LE</p>
+                        <p class="mb-1">{{total.toFixed(2)}} &dollar;</p>
                     </div>
 
                     <button (click)="addUserCart()" class="btn btn-primary btn-block btn-lg fw-bold">
-                        <span>Checkout {{total.toFixed(2)}} LE</span>
+                        <span>Checkout {{total.toFixed(2)}} &dollar;</span>
                     </button>
                 </div>
             </div>

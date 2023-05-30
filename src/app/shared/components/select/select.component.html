@@ -1,4 +1,4 @@
-<label for="" class="my-1 fs-4">{{title}}:</label>
+<label for="" class="my-1 fs-4 mb-2"><i class="bi bi-filter-square-fill me-2"></i>{{title}}:</label>
 <select class="form-select input-colour fs-5" (change)="detectChange($event)">
     <option value="All" selected>All</option>
     <option  value="{{option}}" *ngFor="let option of options">{{option}}</option>

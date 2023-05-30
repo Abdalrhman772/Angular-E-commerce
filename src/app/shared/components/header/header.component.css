@@ -1,8 +1,32 @@
 nav {
-  background: linear-gradient(to right, #c33764, #1d2671);
+  background: linear-gradient(to right, #d6537d, #335992);
   color: #fff;
 }
 
-.title{
-  font-weight: 900;
+.title {
+  font-family: fantasy;
+  font-size: 90px;
 }
+
+.navbar-collapse {
+  flex-grow: unset;
+}
+
+.header {
+  padding: 15px 50px;
+}
+
+.bi-bag-fill {
+  font-size: 40px;
+  padding: 0px 20px;
+}
+
+.bi-box-fill{
+  font-size: 40px;
+}
+
+.bi-box-fill:hover,
+.bi-bag-fill:hover {
+  font-size: 50px;
+}
+
