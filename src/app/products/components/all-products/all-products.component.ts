@@ -9,6 +9,7 @@ import { ProductsService } from '../../services/products.service';
 export class AllProductsComponent implements OnInit {
   constructor(public myService: ProductsService) {}
 
+  allProducts: any;
   products: any;
   categories: any;
   loading: boolean = false;
@@ -23,7 +24,7 @@ export class AllProductsComponent implements OnInit {
     // "target.value" get the value of the selected event (onChange)
     let selectedCategory = event.target.value;
     selectedCategory == 'All'
-      ? this.getAllProducts()
+      ? (this.products = this.allProducts)
       : this.getProductsCategory(selectedCategory);
     console.log(selectedCategory);
   }
@@ -32,9 +33,10 @@ export class AllProductsComponent implements OnInit {
     this.loading = true;
     this.myService.GetAllProducts().subscribe({
       next: (data) => {
+        this.allProducts = data;
         this.products = data;
         this.loading = false;
-        console.log(this.products);
+        console.log(this.allProducts);
       },
       error: (err) => {
         this.loading = false;
@@ -45,19 +47,11 @@ export class AllProductsComponent implements OnInit {
   }
 
   getProductsCategory(category: string) {
-    this.loading = true;
-    this.myService.GetProductsByCategory(category).subscribe({
-      next: (data) => {
-        this.products = data; //products = new filtered products
-        this.loading = false;
-        console.log(this.products);
-      },
-      error: (err) => {
-        this.loading = false;
-        alert(err);
-        console.log(err);
-      },
-    });
+    let res = this.allProducts.filter(
+      (item: any) => item.category === category
+    );
+    this.products = res;
+    console.log(res);
   }
 
   getCategories() {
@@ -74,10 +68,12 @@ export class AllProductsComponent implements OnInit {
 
   addToCart(event: any) {
     console.log(event);
-    
+
     if ('cart' in localStorage) {
       this.cartProducts = JSON.parse(localStorage.getItem('cart')!);
-      let exist = this.cartProducts.find((item) => item.product.id == event.product.id);
+      let exist = this.cartProducts.find(
+        (item) => item.product.id == event.product.id
+      );
       if (exist) {
         alert('exist');
       } else {
