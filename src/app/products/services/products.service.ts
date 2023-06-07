@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { SharedService } from 'src/app/shared/services/shared.service';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -8,6 +9,7 @@ import { SharedService } from 'src/app/shared/services/shared.service';
 export class ProductsService {
   constructor(private myClient: HttpClient, private shared: SharedService) {}
   private base_url = this.shared.base_url + 'products';
+  productsSource = new BehaviorSubject<any>(null);
 
   GetAllProducts() {
     return this.myClient.get(this.base_url);

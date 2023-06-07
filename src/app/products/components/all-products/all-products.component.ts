@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductsService } from '../../services/products.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-all-products',
@@ -7,13 +8,17 @@ import { ProductsService } from '../../services/products.service';
   styleUrls: ['./all-products.component.css'],
 })
 export class AllProductsComponent implements OnInit {
-  constructor(public myService: ProductsService) {}
+  constructor(
+    private myRoute: ActivatedRoute,
+    private productsService: ProductsService
+  ) {}
 
   allProducts: any;
   products: any;
   categories: any;
   loading: boolean = false;
   cartProducts: any[] = [];
+  ID = 0;
 
   ngOnInit(): void {
     this.getAllProducts();
@@ -31,14 +36,14 @@ export class AllProductsComponent implements OnInit {
 
   getAllProducts() {
     this.loading = true;
-    this.myService.GetAllProducts().subscribe({
-      next: (data) => {
+    this.productsService.GetAllProducts().subscribe({
+      next: (data: any) => {
         this.allProducts = data;
         this.products = data;
         this.loading = false;
         console.log(this.allProducts);
       },
-      error: (err) => {
+      error: (err: any) => {
         this.loading = false;
         alert(err);
         console.log(err);
@@ -55,15 +60,24 @@ export class AllProductsComponent implements OnInit {
   }
 
   getCategories() {
-    this.myService.GetAllCategories().subscribe({
-      next: (data) => {
+    this.productsService.GetAllCategories().subscribe({
+      next: (data: any) => {
         this.categories = data;
         console.log(this.categories);
       },
-      error(err) {
+      error(err: any) {
         console.log(err);
       },
     });
+  }
+
+  getProductDetails(productId: number) {
+    console.log(444);
+    const selectedProduct = this.allProducts.filter(
+      (item: any) => item.id == productId
+    )[0]
+    console.log('selectedProduct', selectedProduct);
+    this.productsService.productsSource.next(selectedProduct);
   }
 
   addToCart(event: any) {
