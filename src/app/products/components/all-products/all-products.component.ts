@@ -89,7 +89,7 @@ export class AllProductsComponent implements OnInit {
         (item) => item.product.id == event.product.id
       );
       if (exist) {
-        alert('exist');
+        console.log('exist');
       } else {
         this.cartProducts.push(event);
         localStorage.setItem('cart', JSON.stringify(this.cartProducts));

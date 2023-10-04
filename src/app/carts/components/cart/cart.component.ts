@@ -31,9 +31,11 @@ export class CartComponent implements OnInit {
   }
 
   minusAmount(index: number) {
-    this.cartProducts[index].quantity--;
-    localStorage.setItem('cart', JSON.stringify(this.cartProducts));
-    this.getCartTotal();
+    if (this.cartProducts[index].quantity > 1) {
+      this.cartProducts[index].quantity--;
+      localStorage.setItem('cart', JSON.stringify(this.cartProducts));
+      this.getCartTotal();
+    }
   }
 
   //set the quantity if user entered it manually not using the btn

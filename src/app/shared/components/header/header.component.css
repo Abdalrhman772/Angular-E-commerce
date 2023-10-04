@@ -5,7 +5,7 @@ nav {
 
 .title {
   font-family: fantasy;
-  font-size: 90px;
+  font-size: 65px;
 }
 
 .navbar-collapse {
@@ -13,7 +13,7 @@ nav {
 }
 
 .header {
-  padding: 15px 50px;
+  padding: 4px 35px;
 }
 
 .bi-bag-fill {

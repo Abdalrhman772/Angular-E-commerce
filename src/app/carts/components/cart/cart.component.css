@@ -7,3 +7,11 @@ img {
 .card {
   /* background-color: rgb(253, 245, 234); */
 }
+
+.item-col{
+  width: 45%;
+}
+
+.quantity-col{
+  width: 18%;
+}

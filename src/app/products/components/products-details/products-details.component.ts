@@ -48,7 +48,6 @@ export class ProductsDetailsComponent implements OnInit {
       this.cartProducts = JSON.parse(localStorage.getItem('cart')!);
       let exist = this.cartProducts.find((item) => item.product.id == this.ID);
       if (exist) {
-        alert('exist');
         console.log(this.product);
       } else {
         this.cartProducts.push(this.product);

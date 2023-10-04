@@ -5,11 +5,11 @@
                 <table class="table">
                     <thead>
                         <tr>
-                            <th scope="col" class="h4">Shopping Bag ({{cartProducts.length}} items)</th>
-                            <th scope="col">price</th>
-                            <th scope="col" class="text-center">Quantity</th>
-                            <th scope="col">total</th>
-                            <th scope="col">
+                            <th scope="col" class="h4 item-col">Shopping Bag ({{cartProducts.length}} items)</th>
+                            <th scope="col" class="text-center">price</th>
+                            <th scope="col" class="text-center quantity-col">Quantity</th>
+                            <th scope="col" class="text-center">total</th>
+                            <th scope="col" class="text-center">
                                 <button (click)="clearCart()" class="btn btn-secondary">Clear All</button>
                             </th>
                         </tr>
@@ -24,7 +24,7 @@
                                     </div>
                                 </div>
                             </th>
-                            <td class="align-middle text-start">
+                            <td class="align-middle text-center">
                                 <p class="mb-0 fw-bold">{{product.product.price}} &dollar;</p>
                             </td>
                             <td class="align-middle">
@@ -34,19 +34,19 @@
                                     </button>
 
                                     <input min="1" name="quantity" [(ngModel)]="product.quantity" type="number"
-                                        (change)="detectChange()" class="form-control mx-1 w-50" />
+                                        (change)="detectChange()" class="form-control mx-1" />
 
                                     <button class="btn btn-dark px-2" (click)="addAmount(index)">
                                         <i class="bi bi-plus-lg"></i>
                                     </button>
                                 </div>
                             </td>
-                            <td class="align-middle">
+                            <td class="align-middle text-center">
                                 <p class="mb-0 fw-bold">
                                     {{(product.product.price * product.quantity).toFixed(2)}} &dollar;
                                 </p>
                             </td>
-                            <td class="align-middle">
+                            <td class="align-middle text-center">
                                 <button (click)="deleteProduct(index)"
                                     class="btn btn-outline-danger bi bi-x-lg"></button>
                             </td>
@@ -65,7 +65,7 @@
                         <p class="mb-1">{{total.toFixed(2)}} &dollar;</p>
                     </div>
 
-                    <button (click)="addUserCart()" class="btn btn-primary btn-block btn-lg fw-bold">
+                    <button [disabled]="cartProducts.length == 0" (click)="addUserCart()" class="btn btn-primary btn-block btn-lg fw-bold">
                         <span>Checkout {{total.toFixed(2)}} &dollar;</span>
                     </button>
                 </div>
